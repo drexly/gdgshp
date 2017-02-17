@@ -1,0 +1,8 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<form action="javascript:void(0)" id="testform" method="POST"> 
+<p>sdfl : <input type="text" name="pinD9" /></p> 
+<p><input type="button" id="submit_button" vlaue="submit" /></p> 
+</form>
+<script type="text/javascript">$('#submit_button').click(function() { 
+$.post( "https://hotple-psypu.c9users.io:8080/searchpost/", $( "#testform" ).serialize() ); 
+});</script>> 

@@ -1,0 +1,109 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "firechat",
+        "scope": null,
+        "escapedName": "firechat",
+        "name": "firechat",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\drexly\\Desktop\\fc"
+    ]
+  ],
+  "_from": "firechat@latest",
+  "_id": "firechat@3.0.1",
+  "_inCache": true,
+  "_location": "/firechat",
+  "_nodeVersion": "0.10.38",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/firechat-3.0.1.tgz_1472600284568_0.7586019074078649"
+  },
+  "_npmUser": {
+    "name": "firebase",
+    "email": "operations@firebase.com"
+  },
+  "_npmVersion": "2.7.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "firechat",
+    "scope": null,
+    "escapedName": "firechat",
+    "name": "firechat",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/firechat/-/firechat-3.0.1.tgz",
+  "_shasum": "70096c74e0b4b385bc3576992ab5bc92e3e82739",
+  "_shrinkwrap": null,
+  "_spec": "firechat",
+  "_where": "C:\\Users\\drexly\\Desktop\\fc",
+  "author": {
+    "name": "Firebase",
+    "url": "https://firebase.google.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firechat/issues"
+  },
+  "dependencies": {
+    "firebase": "3.x.x"
+  },
+  "description": "Realtime open source chat client powered by Firebase",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "~0.1.0",
+    "grunt-contrib-jst": "~0.5.0",
+    "grunt-contrib-less": "~0.5.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "70096c74e0b4b385bc3576992ab5bc92e3e82739",
+    "tarball": "https://registry.npmjs.org/firechat/-/firechat-3.0.1.tgz"
+  },
+  "files": [
+    "dist/**",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "gitHead": "3f7072a8468e1602b7b26b5257bd60c1bb07adb8",
+  "homepage": "https://firechat.firebaseapp.com/",
+  "keywords": [
+    "chat",
+    "talk",
+    "firebase",
+    "realtime",
+    "websocket",
+    "synchronization"
+  ],
+  "license": "MIT",
+  "main": "dist/firechat.js",
+  "maintainers": [
+    {
+      "name": "firebase",
+      "email": "operations@firebase.com"
+    }
+  ],
+  "name": "firechat",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firebase/firechat.git"
+  },
+  "scripts": {},
+  "version": "3.0.1"
+}

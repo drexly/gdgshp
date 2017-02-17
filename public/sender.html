@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+    <!-- Firechat-->
+  </head>
+  <body>
+   <script>
+        var auth,database,authProvider;
+        // Initialize Firebase
+      		   var config = {
+          apiKey: "AIzaSyBkRz-kMclME5WsvWbnDYGf-_Ho0wJ5Zew",
+          authDomain: "seoulhp-58dca.firebaseapp.com",
+          databaseURL: "https://seoulhp-58dca.firebaseio.com",
+          storageBucket: "seoulhp-58dca.appspot.com",
+          messagingSenderId: "953892775677"
+        };
+        firebase.initializeApp(config);
+
+        var wholeurl=decodeURIComponent(window.	location.pathname).split("/");
+		    var stname=wholeurl[wholeurl.length-1];
+        var usrname=null;
+        function login(method) {
+
+        auth = firebase.auth();//auth객체
+        database= firebase.database();//db initialize
+        
+        auth.onAuthStateChanged(function(user){//콜백함수
+          if (user) {
+            console.log("success");
+            usrname=user.uid.substr(10,8);
+          }
+          else{
+              auth=firebase.auth().signInAnonymously().catch(function(error){console.log("익명로그인이 실패하였습니다.",error);});}
+          });
+      }
+      login("anon");
+      
+
+        var roomid="fr2YEXBLCiV3ohu9DWq0MHRD4xg2"
+        function send()
+        {            
+         var rt=firebase.database().ref("messages/");
+         rt.push({
+          MediaType:"TEXT",
+          senderId:usrname,
+          senderName:"fr2YEXBLCiV3ohu9DWq0MHRD4xg2",
+          text:"선정릉에오신것을 환영합니다"
+
+         }); 
+         //send();
+
+            console.log(user);
+
+
+        }
+    </script>
+
+    <button id="button1" onclick="send();">보내기</button>
+  </body>
+</html>

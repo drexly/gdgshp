@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+    <!-- Firechat-->
+    <link rel="stylesheet" href="/firechat/dist/firechat.css" />
+    <script src="/firechat/dist/firechat.js"></script>
+  </head>
+  <body>
+   <script>
+        var auth,database,authProvider;
+        // Initialize Firebase
+      		   var config = {
+          apiKey: "AIzaSyBkRz-kMclME5WsvWbnDYGf-_Ho0wJ5Zew",
+          authDomain: "seoulhp-58dca.firebaseapp.com",
+          databaseURL: "https://seoulhp-58dca.firebaseio.com",
+          storageBucket: "seoulhp-58dca.appspot.com",
+          messagingSenderId: "953892775677"
+        };
+        firebase.initializeApp(config);
+        var wholeurl=decodeURIComponent(window.	location.pathname).split("/");
+		var stname=wholeurl[wholeurl.length-1]
+
+      function login(method) {
+ 		    auth = firebase.auth();//auth객체
+        database= firebase.database();//db initialize
+        
+        auth.onAuthStateChanged(function(user){//콜백함수
+          if (user) {
+            //console.log("success");
+            //console.log(user);
+            initChat(user);
+          }
+          else{
+              auth=firebase.auth().signInAnonymously().catch(function(error){console.log("익명로그인이 실패하였습니다.",error);});}
+          });
+      }
+
+      function initChat(user) {
+        // Get a Firebase Database ref
+        var chatRef = firebase.database().ref("hotplechat/"+stname);
+        // Create a Firechat instance
+        var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
+        // Set the Firechat user
+        chat.setUser(user.uid,stname+user.uid.substr(10,8),function(user){chat.resumeSession();});
+            firebase.database().ref("hotplechat/"+stname+"/user-names-online").once('value').then(function(snapshot) {
+          var num=0;
+          var ppl = snapshot.val()
+          for(var i in ppl){
+            num+=1;
+          }
+          if (num==0){
+            num=1;
+          }
+          else{
+            num+=1;
+          }
+          chatRef.child("many").set(num);
+        });
+      }
+      
+    login('Anonymus');
+    </script>
+    <div id="firechat-wrapper">
+    </div>
+    <iframe id="tsop" name="tsop" style="display:none" frame_border="0">
+      
+    </iframe> 
+  </body>
+</html>
